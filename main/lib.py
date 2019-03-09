@@ -33,6 +33,7 @@ def add_flat(container, flat):
 
 
 def search_district(container, search):  # search Это строка поиска
+    search = input('Enter district: ').strip().lower()
     search_lowercased = search.strip().lower()  # 1 -- strip  2. реузльтат search.strip переводится в нижгний регистр
     result_d = []
     for flat in container:
