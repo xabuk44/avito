@@ -4,8 +4,8 @@ from lib import add_flat
 from lib import search_district
 from lib import search_price
 import random
-
-
+from lib import search_dis
+from lib import search_price_without_input
 
 flat_list = []
 flat_1 = create_flat(
@@ -62,3 +62,4 @@ elif a != 'y':
         else:
             print(flat_list)
 # print('\n'.join(str(value) for value in flat_list))
+print(search_price_without_input(flat_list, 4_200_000))

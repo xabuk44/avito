@@ -42,9 +42,24 @@ def search_district(container, search):  # search Это строка поиск
 
     return result_d
 
+def search_dis(container, search):  # search Это строка поиска
+    search_lowercased = search.strip().lower()  # 1 -- strip  2. реузльтат search.strip переводится в нижгний регистр
+    result_d = []
+    for flat in container:
+        if search_lowercased in flat['District'].lower():
+            result_d.append(flat)
+
+    return result_d
 
 def search_price(container, search):
     search = int(input('Enter max price: '))
+    result_p = []
+    for flat in container:
+        if search > flat['Price']:
+            result_p.append(flat)
+    return result_p
+
+def search_price_without_input(container, search):
     result_p = []
     for flat in container:
         if search > flat['Price']:
