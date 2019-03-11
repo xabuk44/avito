@@ -37,6 +37,16 @@ def search_books(container, search):  # search Это строка поиска
 
     return result
 
+def search_tag(container, search):  # search Это строка поиска
+    search_lowercased = list(search.strip().lower())
+    # 1 -- strip  2. реузльтат search.strip переводится в нижгний регистр
+    result = []
+    for book in container:
+        if search_lowercased in list(book['tags'].lower()):
+            result.append(book)
+            continue
+
+    return result
 
 books = []
 
@@ -45,7 +55,7 @@ war_and_piece = create_book(
     'Lev Tolstoy',
     1000,
     True,
-    'война_и_мир, любовь, толстой, классика, русская, проза'
+    'войнаимирлюбовьтолстойклассикарусскаяпроза'
 )
 
 anna_karenina = create_book(
@@ -53,12 +63,20 @@ anna_karenina = create_book(
     'Lev Tolstoy',
     500,
     False,
-    'аннушка_уже_разлила_масло, любовь, толстой, классика, русская, проза'
+    'аннушкаужеразлиламаслолюбовьтолстойклассикарусскаяпроза'
 )
 
+#
+# print(add_book(books, war_and_piece))
+# add_book(books, anna_karenina)
+# print(search_tag(books, ""))
 
-print(add_book(books, war_and_piece))
-add_book(books, anna_karenina)
+search = "масло"
+s = search.strip().lower()
+a = anna_karenina['tags']
+if s in a:
+    print(True)
+else:
+    print(False)
 
-
-print(search_books(books, "раз"))
+print(s, a)
